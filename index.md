@@ -1,45 +1,79 @@
 ---
-title: Checking Reveal.js
-author: Ramnath Vaidyanathan
+title: Process Analysis
+author: Mariusz Musiał
 mode : selfcontained
 framework: revealjs
 hitheme : zenburn
 revealjs:
   theme: solarized
-  transition: none
+  transition: convex
   center: "true"
+  incremental: "true"
 url: {lib: "."}
 bootstrap:
   theme: amelia
-navbar:
-  title: Slidify
-  items: 
-    - {item: Home, href: index,  icon: home}
-    - {item: "Start", href: start, icon: signin}
-    - {item: Author, href: about, icon: pencil}
-    - {item: Style, href: style, icon: hand-right, class: dropdown, 
-        dropdown: true, menu: [
-         {item: io2012, href: 'samples/intro'},
-         {item: deck.js, href: 'samples/deck.js'},
-         {item: shower, href: 'samples/shower'},
-         {item: landslide, href: 'samples/landslide'}
-        ]
-      }
-    - {item: Customize, href: customize, icon: gift}
-    - {item: Extend, href: extend, icon: cogs}
-    - {item: Publish, href: publish, icon: github}
 ---
 
-## Read-And-Delete
 
-1. Edit YAML front matter
-2. Write using R Markdown
-3. Use an empty line followed by three dashes to separate slides!
+## Process Analysis
 
---- .class #id 
+<span style="color:green">
+*A Developing Data Products Assignment Project*
+</span>
 
-## Slide 2
+---
 
+## Process Analysis App
 
+.fragment to get the overview of statistical parameters
 
+.fragment to transform the data
+
+.fragment to select time range
+
+.fragment to view the distribution and scatterplots
+
+.fragment to test for means equality
+
+.fragment to test for trend change over time
+
+<br>
+
+.fragment <span style="color:green"><small><q>Process Analysis App just does this. It helps to __analyze__ and __compare__ functionally equivalent processes.</q></small></span>
+
+---
+
+## Analyze data in two domains
+
+*** {name: left}
+Poulation
+
+![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png)
+
+*** {name: right}
+Time
+
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png)
+
+---
+
+## Review some selected statistics in a tabular form
+
+<iframe src="example.html" STYLE="width:100%" height="400"> </iframe>
+
+<small>The table is live, check it out!</small>
+
+---
+
+## Where to find the stuff?
+
+<ul style="list-style-type:circle">
+    <li><a href="https://marioem.shinyapps.io/ProcessAnalysis/">Process Analysis App</a></li>
+    <li><a href="https://github.com/marioem/DevelopingDataProducts/tree/master">App code on GitHub</a></li>
+    <li><a href="">Presentation code on GitHub</a></li>
+</ul>
+<br>
+<span style="color:green">
+*A simple documentation about the app is embedded in the app itself*
+</span>
 

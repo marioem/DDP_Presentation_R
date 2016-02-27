@@ -1,45 +1,134 @@
 ---
-title: Checking Reveal.js
-author: Ramnath Vaidyanathan
+title: Process Analysis
+author: Mariusz Musiał
 mode : selfcontained
 framework: revealjs
 hitheme : zenburn
 revealjs:
   theme: solarized
-  transition: none
+  transition: convex
   center: "true"
+  incremental: "true"
 url: {lib: "."}
 bootstrap:
   theme: amelia
-navbar:
-  title: Slidify
-  items: 
-    - {item: Home, href: index,  icon: home}
-    - {item: "Start", href: start, icon: signin}
-    - {item: Author, href: about, icon: pencil}
-    - {item: Style, href: style, icon: hand-right, class: dropdown, 
-        dropdown: true, menu: [
-         {item: io2012, href: 'samples/intro'},
-         {item: deck.js, href: 'samples/deck.js'},
-         {item: shower, href: 'samples/shower'},
-         {item: landslide, href: 'samples/landslide'}
-        ]
-      }
-    - {item: Customize, href: customize, icon: gift}
-    - {item: Extend, href: extend, icon: cogs}
-    - {item: Publish, href: publish, icon: github}
+---
+```{r echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
+library(ggplot2)
+library(dplyr)
+
+load("assets/procdata.RData") # load the dataframe
+
+procdata <- procdata %>% filter(Process %in% c("A", "B", "C", "D"))
+procdata2 <- procdata[sample(nrow(procdata), size = 20, replace = F),]
+```
+
+## Process Analysis
+
+<span style="color:green">
+*A Developing Data Products Assignment Project*
+</span>
+
 ---
 
-## Read-And-Delete
+## Process Analysis App
 
-1. Edit YAML front matter
-2. Write using R Markdown
-3. Use an empty line followed by three dashes to separate slides!
+.fragment to get the overview of statistical parameters
 
---- .class #id 
+.fragment to transform the data
 
-## Slide 2
+.fragment to select time range
 
+.fragment to view the distribution and scatterplots
 
+.fragment to test for means equality
 
+.fragment to test for trend change over time
+
+<br>
+
+.fragment <span style="color:green"><small><q>Process Analysis App just does this. It helps to __analyze__ and __compare__ functionally equivalent processes.</q></small></span>
+
+---
+
+## Analyze data in two domains
+
+*** {name: left}
+Poulation
+
+```{r, echo=FALSE, class="fragment"}
+        ga <- ggplot(procdata, aes(x = Process, y = Performance, fill = Process))
+        ga <- ga + geom_violin()
+        ga <- ga + geom_boxplot(fill = "grey", color = "red", outlier.colour = "red",
+                                outlier.size = 3, width = .2)
+        ga <- ga + stat_summary(color = "black", fun.y=mean, geom="point", shape=21, size=4)
+        ga <- ga + ggtitle("Process Performance")
+        ga <- ga + xlab("Process type")
+            ga <- ga + ylab("Performance metric")
+        ga <- ga + theme(plot.title = element_text(size = rel(2), 
+                                                   colour = "darkblue", face = "bold"))
+        ga <- ga + theme(axis.title.y = element_text(size = rel(1.5)))
+        ga <- ga + theme(axis.title.x = element_text(size = rel(1.5)))
+        ga <- ga + theme(axis.text.x = element_text(size = rel(1.5)))
+        ga <- ga + theme(axis.text.y = element_text(size = rel(1.5)))
+        ga
+```
+
+*** {name: right}
+Time
+
+```{r, echo=FALSE, class="fragment"}
+    g8 <- ggplot(procdata, aes(x = Date, y = Performance, color = Process))
+    g8 <- g8 + geom_point(size = 3, alpha = .6)
+    g8 <- g8 + geom_smooth(method = "lm", color = "black")
+    g8 <- g8 + facet_wrap(~Process)
+    g8 <- g8 + ggtitle("Performance trends per Process Type")
+    g8 <- g8 + xlab("Process run date")
+    g8 <- g8 + ylab("Performance metric")
+    g8 <- g8 + theme(legend.position="none")
+    g8 <- g8 + theme(axis.text.x = element_text(angle = 90))
+    g8 <- g8 + theme(plot.title = element_text(size = rel(2), 
+                                               colour = "darkblue", face = "bold"))
+    g8 <- g8 + theme(axis.title.y = element_text(size = rel(1.5)))
+    g8 <- g8 + theme(axis.title.x = element_text(size = rel(1.5)))
+    g8 <- g8 + theme(axis.text.x = element_text(size = rel(1.5)))
+    g8 <- g8 + theme(axis.text.y = element_text(size = rel(1.5)))
+
+    g8
+```
+
+---
+
+## Review some selected statistics in a tabular form
+
+```{r, echo=FALSE, results='asis'}
+# Hint from https://github.com/ramnathv/slidify/issues/414
+# 
+dynamic_table <- DT::datatable(procdata2[,1:4],
+                               options = list(autoWidth = FALSE,
+                                              searching = TRUE,
+                                              paging = TRUE,
+                                              info = FALSE,
+                                              pageLength = 5,
+                                              ordering = TRUE)
+                               )
+DT::saveWidget(dynamic_table, 'example.html')
+cat('<iframe src="example.html" STYLE="width:100%" height="400"> </iframe>')
+```
+
+<small>The table is live, check it out!</small>
+
+---
+
+## Where to find the stuff?
+
+<ul style="list-style-type:circle">
+    <li><a href="https://marioem.shinyapps.io/ProcessAnalysis/">Process Analysis App</a></li>
+    <li><a href="https://github.com/marioem/DevelopingDataProducts/tree/master">App code on GitHub</a></li>
+    <li><a href="">Presentation code on GitHub</a></li>
+</ul>
+<br>
+<span style="color:green">
+*A simple documentation about the app is embedded in the app itself*
+</span>
 

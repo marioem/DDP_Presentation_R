@@ -2,34 +2,110 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Checking Reveal.js</title>
+  <title>Process Analysis</title>
   <meta name="description" content="">
-  <meta name="author" content="Ramnath Vaidyanathan">
+  <meta name="author" content="Mariusz Musiał">
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <link rel="stylesheet" href="./frameworks/revealjs/css/reveal.min.css">
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootswatch/2.3.1/amelia/bootstrap.min.css">
+<link rel="stylesheet" href="./frameworks/revealjs/css/reveal.min.css">
   <link rel="stylesheet" href="./frameworks/revealjs/css/theme/solarized.css" id="theme">
   <link rel="stylesheet" href="./highlighters/highlight.js/css/zenburn.css" id="theme">
   <!--[if lt IE 9]>
   <script src="lib/js/html5shiv.js"></script>
-  <![endif]-->  <link rel="stylesheet" href = "assets/css/ribbons.css">
+  <![endif]-->  <link rel="stylesheet" href = "assets/css/slidify-reveal.css">
 
 </head>
 <body>
+  
   <div class="reveal">
     <div class="slides">
       <section class='' data-state='' id='slide-1'>
-  <h2>Read-And-Delete</h2>
-  <ol>
-<li>Edit YAML front matter</li>
-<li>Write using R Markdown</li>
-<li>Use an empty line followed by three dashes to separate slides!</li>
-</ol>
+  <h2>Process Analysis</h2>
+  <p><span style="color:green">
+<em>A Developing Data Products Assignment Project</em>
+</span></p>
 
+  <div class='left' style='float:left;width:48%'>
+     
+  </div>    
+  <div class='right' style='float:right;width:48%'>
+     
+  </div>
 </section>
-<section class='class' data-state='' id='id'>
-  <h2>Slide 2</h2>
+<section class='' data-state='' id='slide-2'>
+  <h2>Process Analysis App</h2>
+  <p class='fragment'>to get the overview of statistical parameters</p>
+
+<p class='fragment'>to transform the data</p>
+
+<p class='fragment'>to select time range</p>
+
+<p class='fragment'>to view the distribution and scatterplots</p>
+
+<p class='fragment'>to test for means equality</p>
+
+<p class='fragment'>to test for trend change over time</p>
+
+<p><br></p>
+
+<p class='fragment'><span style="color:green"><small><q>Process Analysis App just does this. It helps to <strong>analyze</strong> and <strong>compare</strong> functionally equivalent processes.</q></small></span></p>
+
+  <div class='left' style='float:left;width:48%'>
+     
+  </div>    
+  <div class='right' style='float:right;width:48%'>
+     
+  </div>
+</section>
+<section class='' data-state='' id='slide-3'>
+  <h2>Analyze data in two domains</h2>
   
+  <div class='left' style='float:left;width:48%'>
+     <p>Poulation</p>
+
+<p><img src="figure/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2"></p>
+
+  </div>    
+  <div class='right' style='float:right;width:48%'>
+     <p>Time</p>
+
+<p><img src="figure/unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3"></p>
+
+  </div>
+</section>
+<section class='' data-state='' id='slide-4'>
+  <h2>Review some selected statistics in a tabular form</h2>
+  <iframe src="example.html" STYLE="width:100%" height="400"> </iframe>
+
+<p><small>The table is live, check it out!</small></p>
+
+  <div class='left' style='float:left;width:48%'>
+     
+  </div>    
+  <div class='right' style='float:right;width:48%'>
+     
+  </div>
+</section>
+<section class='' data-state='' id='slide-5'>
+  <h2>Where to find the stuff?</h2>
+  <ul style="list-style-type:circle">
+    <li><a href="https://marioem.shinyapps.io/ProcessAnalysis/">Process Analysis App</a></li>
+    <li><a href="https://github.com/marioem/DevelopingDataProducts/tree/master">App code on GitHub</a></li>
+    <li><a href="">Presentation code on GitHub</a></li>
+</ul>
+
+<p><br>
+<span style="color:green">
+<em>A simple documentation about the app is embedded in the app itself</em>
+</span></p>
+
+  <div class='left' style='float:left;width:48%'>
+     
+  </div>    
+  <div class='right' style='float:right;width:48%'>
+     
+  </div>
 </section>
     </div>
   </div>
@@ -45,7 +121,7 @@
     history: true,
     center: true,
     theme: Reveal.getQueryHash().theme || 'solarized', 
-    transition: Reveal.getQueryHash().transition || 'none', 
+    transition: Reveal.getQueryHash().transition || 'convex', 
     dependencies: [
     // Cross-browser shim that fully implements classList -
     // https://github.com/eligrey/classList.js/
