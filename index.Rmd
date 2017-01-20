@@ -54,7 +54,7 @@ procdata2 <- procdata[sample(nrow(procdata), size = 20, replace = F),]
 ## Analyze data in two domains
 
 *** {name: left}
-Poulation
+Population
 
 ```{r, echo=FALSE, class="fragment"}
         ga <- ggplot(procdata, aes(x = Process, y = Performance, fill = Process))

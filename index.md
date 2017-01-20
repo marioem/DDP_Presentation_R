@@ -46,14 +46,14 @@ bootstrap:
 ## Analyze data in two domains
 
 *** {name: left}
-Poulation
+Population
 
-![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png)
+![plot of chunk unnamed-chunk-2](assets/fig/unnamed-chunk-2-1.png)
 
 *** {name: right}
 Time
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png)
+![plot of chunk unnamed-chunk-3](assets/fig/unnamed-chunk-3-1.png)
 
 ---
 
