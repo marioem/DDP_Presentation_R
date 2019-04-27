@@ -105,15 +105,16 @@ Time
 # Hint from https://github.com/ramnathv/slidify/issues/414
 # 
 dynamic_table <- DT::datatable(procdata2[,1:4],
-                               options = list(autoWidth = FALSE,
+                               options = list(autoWidth = TRUE, # was F
                                               searching = TRUE,
                                               paging = TRUE,
                                               info = FALSE,
                                               pageLength = 5,
-                                              ordering = TRUE)
+                                              ordering = TRUE),
+                               width = 760
                                )
 DT::saveWidget(dynamic_table, 'example.html')
-cat('<iframe src="example.html" STYLE="width:100%" height="400"> </iframe>')
+cat('<iframe src="example.html" style="width:100%" height="400"> </iframe>')
 ```
 
 <small>The table is live, check it out!</small>

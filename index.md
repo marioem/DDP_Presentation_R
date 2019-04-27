@@ -59,7 +59,7 @@ Time
 
 ## Review some selected statistics in a tabular form
 
-<iframe src="example.html" STYLE="width:100%" height="400"> </iframe>
+<iframe src="example.html" style="width:100%" height="400"> </iframe>
 
 <small>The table is live, check it out!</small>
 
